@@ -1,0 +1,428 @@
+@font-face {
+    font-family: 'Redcollar';
+    font-style: normal;
+    font-weight: 700;
+    src:
+        local('Redcollar'),
+        url('./../fonts/redcollar.woff2') format('woff2'),
+        url('./../fonts/redcollar.woff') format('woff'),
+        url('./../fonts/redcollar.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'TT Commons';
+    font-style: normal;
+    font-weight: 400;
+    src:
+        local('TT Commons'),
+        url('./../fonts/tt-commons-400.woff2') format('woff2'),
+        url('./../fonts/tt-commons-400.woff') format('woff'),
+        url('./../fonts/tt-commons-400.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'TT Commons';
+    font-style: normal;
+    font-weight: 500;
+    src:
+        local('TT Commons'),
+        url('./../fonts/tt-commons-500.woff2') format('woff2'),
+        url('./../fonts/tt-commons-500.woff') format('woff'),
+        url('./../fonts/tt-commons-500.ttf') format('truetype');
+}
+
+:root {
+    --palette-black: #000000;
+    --palette-gray: #666666;
+    --palette-red: #f51b1b;
+    --palette-white: #ffffff;
+
+    --color-text-primary: var(--palette-white);
+    --color-text-secondary: var(--palette-gray);
+    --color-bg-primary: var(--palette-black);
+    --color-bg-accent: var(--palette-red);
+
+    --font-h1: normal 700 24px/28px 'Redcollar', Helvetica, Arial, sans-serif;
+    --font-h2: normal 700 16px/16px 'Redcollar', Helvetica, Arial, sans-serif;
+    --font-p1: normal 400 20px/20px 'TT Commons', Helvetica, Arial, sans-serif;
+    --font-p2: normal 400 18px/24px 'TT Commons', Helvetica, Arial, sans-serif;
+
+    --unit-spacing: 8px;
+}
+
+@media screen and (min-width: 768px) {
+    :root {
+        --font-h1: normal 700 24px/28px 'Redcollar', Helvetica, Arial, sans-serif;
+        --font-p1: normal 400 20px/24px 'TT Commons', Helvetica, Arial, sans-serif;
+        --font-p2: normal 400 18px/24px 'TT Commons', Helvetica, Arial, sans-serif;
+    }
+}
+
+.visually-hidden {
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+}
+
+.icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+}
+
+.text {
+    margin: 0;
+}
+
+.text_color_primary {
+    color: var(--color-text-primary);
+}
+
+.text_color_secondary {
+    color: var(--color-text-secondary);
+}
+
+.text_style_h1 {
+    font: var(--font-h1);
+}
+
+.text_style_h2 {
+    font: var(--font-h2);
+}
+
+.text_style_p1 {
+    font: var(--font-p1);
+}
+
+.text_style_p2 {
+    font: var(--font-p2);
+}
+
+.text_style_link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.text_style_link:hover {
+    text-decoration: underline;
+}
+
+.accompany {
+    max-width: 690px;
+    padding-top: 20px;
+    padding-bottom: 4px;
+    margin-bottom: 20px;
+}
+
+.accompany p:not(:first-child) {
+    margin-top: 8px;
+}
+
+@media screen and (min-width: 768px) {
+    .accompany {
+        padding: 0;
+        padding-top: 18px;
+    }
+
+    .accompany p:not(:first-child) {
+        margin-top: 16px;
+    }
+}
+
+.body {
+    color: var(--color-text-primary);
+    background-color: var(--color-bg-primary);
+}
+
+.header {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+}
+
+.header a {
+    display: block;
+    width: 220px;
+    height: 22px;
+}
+
+.header svg {
+    width: 100%;
+    height: 100%;
+}
+
+.header nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.header__button {
+    position: relative;
+    width: 40px;
+    height: 23px;
+    background-color: var(--palette-black);
+    border: none;
+    border-radius: 24px;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.4s;
+}
+
+.header__button:before {
+    content: "";
+    position: absolute;
+    height: 17px;
+    width: 17px;
+    left: 3px;
+    bottom: 3px;
+    background-size: cover;
+    border-radius: 50%;
+    transition: transform 0.4s;
+}
+
+html[data-theme="dark"] .header__button:before {
+    background-image: url('./../images/moon.svg');
+}
+
+html[data-theme="light"] .header__button:before {
+    background-image: url('./../images/sun.svg');
+}
+
+.header__button_active {
+    background-color: var(--palette-red);
+}
+
+.header__button_active:before {
+    transform: translateX(17px);
+}
+
+@media screen and (min-width: 768px) {
+    .header {
+        top: 25px;
+        left: auto;
+        right: 40px;
+    }
+
+    .header a {
+        width: 240px;
+        height: 24px;
+    }
+}
+
+.img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.layout {
+    display: flex;
+    flex-direction: column;
+    padding: 90px 20px 58px;
+}
+
+.layout_profile {
+    gap: 20px;
+    min-height: 780px;
+}
+
+@media (min-width: 768px) {
+    .layout {
+        flex-direction: row;
+        padding: 40px;
+    }
+
+    .layout_profile {
+        gap: 32px;
+    }
+}
+
+.list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.list_inline {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.list_contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.list_contacts li {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.list_contacts svg {
+    flex-shrink: 0;
+}
+
+@media screen and (min-width: 768px) {
+    .list_inline {
+        gap: 32px;
+    }
+
+    .list_contacts {
+        gap: 20px;
+    }
+}
+
+.profile {
+    width: 320px;
+    color: var(--palette-white);
+}
+
+.profile p {
+    margin-top: 4px;
+}
+
+.profile ul {
+    margin-top: 32px;
+}
+
+.profile div {
+    position: relative;
+    margin-top: -20px;
+    padding: 24px 16px 40px;
+    background-color: var(--palette-red);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.profile div::before {
+    content: url("./../images/profile-shape.svg");
+    position: absolute;
+    left: 50%;
+    top: -18px;
+    display: block;
+    width: 60px;
+    height: 20px;
+    transform: translateX(-50%);
+}
+
+@media screen and (min-width: 768px) {
+    .profile p {
+        margin-top: 8px;
+    }
+
+    .profile ul {
+        margin-top: 40px;
+    }
+
+    .profile div {
+        min-height: 450px;
+        margin-top: -24px;
+        padding: 40px 24px;
+        border-top-left-radius: 24px;
+        border-top-right-radius: 24px;
+    }
+}
+
+.resume {
+    position: relative;
+    padding: 40px 15px 30px;
+    border: 1px solid var(--color-text-primary);
+}
+
+.resume::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: -1.5px;
+    display: block;
+    width: 50px;
+    height: 20px;
+    background-color: var(--color-bg-primary);
+    transform: translateX(-50%);
+}
+
+.resume__shape {
+    display: block;
+    width: 60px;
+    height: 20px;
+    transform: translateX(-50%);
+    position: absolute;
+    left: 50%;
+    top: -1.5px;
+    stroke: currentColor;
+}
+
+.resume section:not(:first-of-type) {
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid var(--color-text-secondary);
+}
+
+.resume ul {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.resume section:last-of-type ul {
+    flex-direction: row;
+}
+
+@media screen and (min-width: 768px) {
+    .resume {
+        padding: 48px 28px;
+    }
+
+    .resume::before {
+        top: -1.5px;
+        left: 60px;
+    }
+
+    .resume__shape {
+        width: 60px;
+        height: 20px;
+        top: -1.5px;
+        left: 60px;
+        stroke: currentColor;
+    }
+}
+
+.wrapper {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+}
+
+html[data-theme="light"] {
+    --color-text-primary: var(--palette-black);
+    --color-text-secondary: var(--palette-gray);
+    --color-bg-primary: var(--palette-white);
+    --color-bg-accent: var(--palette-red);
+}
+
+html[data-theme="dark"] {
+    --color-text-primary: var(--palette-white);
+    --color-text-secondary: var(--palette-gray);
+    --color-bg-primary: var(--palette-black);
+    --color-bg-accent: var(--palette-red);
+}
+
+@media screen and (min-width: 768px) {
+    :root {
+        --font-h1: normal 700 24px/28px 'Redcollar', Helvetica, Arial, sans-serif;
+        --font-p1: normal 400 20px/24px 'TT Commons', Helvetica, Arial, sans-serif;
+        --font-p2: normal 400 18px/24px 'TT Commons', Helvetica, Arial, sans-serif;
+    }
+}

@@ -1,0 +1,26 @@
+body {
+    font-family: sans-serif;
+}
+
+.sg-swatch {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.sg-swatch_color_black {
+    background-color: var(--palette-black);
+}
+
+.sg-swatch_color_red {
+    background-color: var(--palette-red);
+}
+
+.sg-swatch_color_white {
+    background-color: var(--palette-white);
+    border: 1px solid lightgray;
+}
+
+.sg-swatch_color_gray {
+    background-color: var(--palette-gray);
+}
